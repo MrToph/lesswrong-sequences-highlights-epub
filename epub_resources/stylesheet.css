@@ -1,0 +1,130 @@
+/* Reset margins and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Basic document setup */
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: serif;
+  line-height: 1.5;
+  margin: 1em;
+  padding: 0 1em;
+}
+
+/* Basic typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  margin: 1em 0 0.5em;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+p {
+  margin: 0.5em 0;
+  text-align: justify;
+}
+
+/* Lists */
+ul, ol {
+  margin: 1em 0;
+  padding-left: 2em;
+}
+
+/* Blockquotes */
+blockquote {
+  margin: 1em 2em;
+  font-style: italic;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Code blocks */
+pre, code {
+  font-family: monospace;
+  white-space: pre-wrap;
+  margin: 1em 0;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em 0;
+}
+
+th, td {
+  padding: 0.5em;
+  border: 1px solid #ddd;
+}
+
+/* custom classes we use */
+.summary {
+  border-left: 2px solid #ddd;
+  padding-left: 1em;
+  margin: 1em 0;
+}
+
+/* Kindle does not support `display: flex;`, so need to do it the ugly way */
+.post-info {
+  margin: 1em 0;
+  font-size: 0.8em;
+  font-style: italic;
+  overflow: hidden; /* Contain floats */
+  position: relative; /* For absolute positioning */
+}
+
+.post-info div {
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* Date - left aligned */
+.post-info div:first-child {
+  float: left;
+  max-width: 30%;
+}
+
+/* Author - centered using margin auto */
+.post-info div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  text-align: center;
+}
+
+/* Read time - right aligned */
+.post-info div:last-child {
+  float: right;
+  max-width: 30%;
+  text-align: right;
+}
+
+/* Clearfix */
+.post-info::after {
+  content: "";
+  display: table;
+  clear: both;
+}

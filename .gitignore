@@ -1,0 +1,7 @@
+/target
+INSTRUCTIONS.md
+.cache/*
+!.cache/.gitkeep
+.env
+epub_resources/cover.xcf
+epub_resources/ulysses-and-the-sirens.jpg

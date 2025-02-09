@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" lang="en" xml:lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>{{title}}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+</head>
+
+<body>
+  <h1>
+    {{title}}
+  </h1>
+  <div class="post-info">
+    <div>
+      {{date}}
+    </div>
+    <div>
+      {{author}}
+    </div>
+    <div>
+      Read time: {{read_time}}
+    </div>
+  </div>
+  <div class="summary">
+    <h3>Summary</h3>
+    {{{post_summary}}}
+  </div>
+  <div>
+    {{{body}}}
+  </div>
+  <div class="summary">
+    <h3>Comments summary</h3>
+    {{{comments_summary}}}
+  </div>
+</body>
+
+</html>
