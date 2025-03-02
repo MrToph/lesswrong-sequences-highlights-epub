@@ -82,7 +82,11 @@ impl ImageEmbedder {
         // If Cloudflare credentials are not set, return a text link
         if !self.supports_inlining_images() {
             // Extract file extension to check if it's an SVG
-            let img_extension = absolute_url.split('.').next_back().unwrap_or("").to_lowercase();
+            let img_extension = absolute_url
+                .split('.')
+                .next_back()
+                .unwrap_or("")
+                .to_lowercase();
             // Create anchor text for fallback
             let anchor_text = if let Some(image_alt) = image_alt {
                 image_alt

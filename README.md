@@ -24,7 +24,8 @@ This also indirectly supports `.svg` images by pixelizing them.
 
 ```bash
 # for AI calls, any OpenAI-compatible provider will work. (openrouter, venice.ai)
-# for embedding the post's images, a Cloudflare browser rendering API key is required. If it's not present the images are simply replaced with a link to the image.
+# for embedding the post's images, a Cloudflare browser rendering API key is required.
+# If it's not present the images are simply replaced with a link to the image.
 cp example.env .env
 
 cargo build

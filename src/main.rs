@@ -1,13 +1,17 @@
+use clap::Parser;
 use lesswrong_sequences_highlights_epub::{
     ai::{AiClient, AnnotatedPostWithComments},
     epub::Epub,
     lesswrong::LessWrongApi,
 };
-use clap::Parser;
 use std::path::PathBuf;
 
 #[derive(Parser, Debug)]
-#[clap(author, version, about = "Generate EPUB from LessWrong posts with AI summaries")]
+#[clap(
+    author,
+    version,
+    about = "Generate EPUB from LessWrong posts with AI summaries"
+)]
 struct Args {
     /// Space-separated list of LessWrong post IDs
     #[clap(value_parser, num_args = 0..)]
@@ -72,24 +76,22 @@ async fn main() -> anyhow::Result<()> {
     let (title, author) = if is_sequences {
         (None, None)
     } else {
-        (Some(annotated_posts.first().unwrap().post.title.clone()), Some(annotated_posts.first().unwrap().post.author.clone()))
+        (
+            Some(annotated_posts.first().unwrap().post.title.clone()),
+            Some(annotated_posts.first().unwrap().post.author.clone()),
+        )
     };
     epub.set_metadata(title, author, is_sequences)?;
-
 
     for post in annotated_posts {
         epub.add_post(&post).await?;
     }
 
-
-
     let output = epub.generate()?;
     std::fs::write(output_path, output)?;
-    
+
     Ok(())
 }
-
-
 
 // Default post IDs for the sequences if none provided
 const SEQUENCES_POST_IDS: &[&str] = &[

@@ -40,7 +40,12 @@ impl Default for Epub {
 }
 
 impl Epub {
-    pub fn set_metadata(&mut self, title: Option<String>, author: Option<String>, use_cover_image: bool) -> Result<&mut Self> {
+    pub fn set_metadata(
+        &mut self,
+        title: Option<String>,
+        author: Option<String>,
+        use_cover_image: bool,
+    ) -> Result<&mut Self> {
         let stylesheet = std::fs::read("epub_resources/stylesheet.css")?;
 
         // Default title if none provided
