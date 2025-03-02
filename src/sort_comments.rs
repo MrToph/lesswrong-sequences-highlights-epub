@@ -37,7 +37,6 @@ pub fn sort_comments_by_score_depth_first(
     results
 }
 
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -109,11 +108,13 @@ mod tests {
         let mut sorted = sort_comments_by_score_depth_first(&comments, 5);
         assert!(do_vecs_match(
             &sorted.drain(..).map(|c| c.id).collect::<Vec<String>>(),
-            &["b".into(),
+            &[
+                "b".into(),
                 "bb".into(),
                 "ba".into(),
                 "a".into(),
-                "ab".into()],
+                "ab".into()
+            ],
         ));
     }
 }
